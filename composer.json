@@ -7,7 +7,9 @@
             "email": "themaymeow@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+      "ext-ctype": "*"
+    },
     "autoload": {
         "psr-4": {
             "MayMeow\\PHPColor\\": "src/"

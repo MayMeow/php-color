@@ -16,10 +16,6 @@ Convert color to hex
 
 ```php
 use MayMeow\PHPColor\Color;
-//...
-```
-
-```php
 // ...
 $color = new Color(198, 255, 32);
 $hex = Color::convertToHex($color); //#c6ff20
@@ -28,9 +24,19 @@ $hex = Color::convertToHex($color); //#c6ff20
 and back to RGB
 
 ```php
+use MayMeow\PHPColor\Color;
 // ...
-$rgb = Color::convertToRGB("#c6ff20"); // color object: Color(198, 255, 32)
+try {
+    $rgb = Color::convertToRGB($hex); // color object: Color(198, 255, 32)
+} catch (\MayMeow\PHPColor\Exceptions\NotHexException $exception)
+{
+    // do something, echo message or log ...
+}
+
 ```
 
+You can check `example.php` file in project sources.
+
 ## License
+
 MIT

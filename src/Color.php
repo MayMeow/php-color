@@ -2,6 +2,12 @@
 
 namespace MayMeow\PHPColor;
 
+use MayMeow\PHPColor\Exceptions\NotHexException;
+
+/**
+ * Class Color
+ * @package MayMeow\PHPColor
+ */
 class Color
 {
     /** int $red */
@@ -13,6 +19,12 @@ class Color
     /** int $blue */
     public $blue;
 
+    /**
+     * Color constructor.
+     * @param $red
+     * @param $green
+     * @param $blue
+     */
     public function __construct($red, $green, $blue)
     {
         $this->red = $red;
@@ -23,6 +35,9 @@ class Color
     /**
      * Method convertToHex
      * Covert given color to string #RRGGBB
+     *
+     * @param Color $color
+     * @return string
      */
     public static function convertToHex(Color $color)
     {
@@ -41,10 +56,17 @@ class Color
     /**
      * Method convertToRGB
      * Convert given color string back to RGB color values
+     *
+     * @param $hex
+     * @return Color
+     * @throws NotHexException
      */
     public static function convertToRGB($hex)
     {
         $hex = ltrim($hex, "#");
+
+        if (!ctype_xdigit($hex))
+            throw new NotHexException();
 
         $red = hexdec(substr($hex, 0, 2));
         $green = hexdec(substr($hex, 2, 2));

@@ -6,6 +6,9 @@
 !.vscode/extensions.json
 *.code-workspace
 
+##### PHP stom files
+.idea/*
+
 ##### Composer
 composer.phar
 /vendor/
