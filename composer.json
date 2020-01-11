@@ -1,0 +1,16 @@
+{
+    "name": "maymeow/php-color",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "May",
+            "email": "themaymeow@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "MayMeow\\PHPColor\\": "src/"
+        }
+    }
+}
